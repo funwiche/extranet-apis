@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
@@ -6,7 +7,7 @@ router.post("", async (req, res) => {
   try {
     const { host, subject, replyTo, html, from, to, attachments, copy } =
       req.body;
-    const auth = { user: `info@${host}`, pass: "!QAZxcvbnm,./" };
+    const auth = { user: `info@${host}`, pass: process.env.PASS };
     let info = await nodemailer
       .createTransport({ host, port: 465, secure: true, auth })
       .sendMail({ from, to, replyTo, subject, html, attachments });
