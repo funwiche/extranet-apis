@@ -5,21 +5,27 @@ const nodemailer = require("nodemailer");
 
 router.post("", async (req, res) => {
   try {
+    let info;
     const { host, user, subject, replyTo, html, from, to, attachments, copy } =
       req.body;
     const auth = { user, pass: process.env.PASS };
-    let info = await nodemailer
-      .createTransport({ host, port: 465, secure: true, auth })
-      .sendMail({ from, to, replyTo, subject, html, attachments });
-    console.log("Message sent: %s", info.messageId);
-    if (copy)
+    if (attachments && attachments.length)
+      info = await nodemailer
+        .createTransport({ host, port: 465, secure: true, auth })
+        .sendMail({ from, to, replyTo, subject, html, attachments });
+    else
+      info = await nodemailer
+        .createTransport({ host, port: 465, secure: true, auth })
+        .sendMail({ from, to, replyTo, subject, html });
+    if (info && copy)
       await nodemailer
         .createTransport({ host, port: 465, secure: true, auth })
         .sendMail(copy);
-    res.status(200).json("message sent");
+    console.log("message sent %s", info.messageId);
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
-    res.status(500).json("message not sent");
+    res.sendStatus(500);
   }
 });
 
