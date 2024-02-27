@@ -73,6 +73,11 @@ router.post("/login", async (req, res) => {
       return res.json([false, "Incorrect password"]);
     const token = JWT.sign(profile._id, SECRET);
     profile = await Account.findById(profile._id, project);
+    await Account.updateOne(
+      { _id: profile._id },
+      { $set: { loggedin: Date.now() } },
+      { upsert: true }
+    );
     res.json([{ token, profile }, false]);
   } catch (error) {
     res.json([false, "An error occured. Please try again!"]);

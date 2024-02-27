@@ -13,7 +13,7 @@ module.exports = mongoose.model(
       statement: Array,
       account: Map,
       card: Map,
-      logged: String,
+      loggedin: Date,
     },
     { timestamps: true, versionKey: false }
   )
