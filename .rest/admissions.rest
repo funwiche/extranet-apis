@@ -1,0 +1,10 @@
+
+### Accepted
+POST http://localhost:3001/admissions/apply/24204195
+###
+### Submit
+PATCH http://localhost:3001/admissions/apply/submit
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo
+###
+### Not-accepted
+DELETE http://localhost:3001/admissions/apply/24204195

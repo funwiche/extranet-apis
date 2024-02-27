@@ -1,0 +1,121 @@
+### Get User
+GET http://localhost:3001/admissions/profiles
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo
+###
+### Get User
+GET http://localhost:3001/admissions/profiles/24204195
+###
+### Login
+POST http://localhost:3001/admissions/profiles/login
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "password":"1234567890"
+}
+
+###
+### Register
+POST http://localhost:3001/admissions/profiles/register
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "lname":"Che",
+  "fname":"Fidelis Funwi"
+}
+
+
+###
+### verify
+POST http://localhost:3001/admissions/profiles/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWZpZGVsaXNAZ21haWwuY29tIiwibG5hbWUiOiJDaGUiLCJmbmFtZSI6IkZpZGVsaXMgRnVud2kiLCJleHBpcnkiOjE3MDkxOTA1ODg2MDcsImlhdCI6MTcwOTAxNzc4OH0.cpJTG9nDAnMakgmv4AJY_kJR81lDmnGC0MpygBFDUiA
+
+###
+### signup
+POST http://localhost:3001/admissions/profiles/signup
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "lname":"Che",
+  "fname":"Fidelis Funwi",
+  "password":"1234567890",
+  "status":"pending",
+  "profile":{
+    "lname":"Che",
+    "fname":"Fidelis Funwi",
+    "gender":"Male",
+    "phone":"+237 691 87 2554",
+    "birth_place": "Cameroon",
+    "birth_city": "Kumba",
+    "birth_date": "1987-03-11",
+    "nationality":"Cameroon",
+    "civil_status":"Single"
+  },
+  "address":{  },
+  "program":{  },
+  "uploads":{  }
+}
+###
+### Forgot
+POST http://localhost:3001/admissions/profiles/password/forgot
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com"
+}
+
+###
+### Check
+POST http://localhost:3001/admissions/profiles/password/expiry
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjI0MTg5Mzc4LCJleHBpcnkiOjE3MDQyMDEzMTMyMzUsImlhdCI6MTcwNDE5NDExM30.G_3n_xcKZYva62PFiMDbuB4_F-aF-FwFhIZYqwxTncI
+
+###
+### Reset
+POST http://localhost:3001/admissions/profiles/password/reset
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo
+Content-Type: application/json
+
+{
+  "password": "1234567890"
+}
+###
+### Change password
+POST http://localhost:3001/admissions/profiles/password/change
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo
+Content-Type: application/json
+
+{
+  "newpassword": "1234567890",
+  "password": "12345678p"
+}
+
+###
+### Update
+PATCH http://localhost:3001/admissions/profiles
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo
+Content-Type: application/json
+
+{
+  "status":"verified",
+  "address": {
+    "street": "P.O. Box 40",
+    "city": "Buea",
+    "state": "Southwest",
+    "zip": "00237",
+    "country": "Cameroon"
+  },
+  "program": {
+    "faculty": "Faculty of Science",
+    "degree": "Master Degree",
+    "semester": "Summer 2024",
+    "course": "MSc Biotechnology"
+  }
+}
+
+
+###
+### Delete
+DELETE http://localhost:3001/admissions/profiles
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo

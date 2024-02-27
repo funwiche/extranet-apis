@@ -1,0 +1,77 @@
+### Get User
+GET http://localhost:3001/accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTcwOTAyODIwMTI4Mg.lTdUJuDE1d4AVPQyw0jBw2woeA0kRzt9HGi2jN7Bzzc
+
+### Get User
+GET http://localhost:3001/accounts/1709028201282
+
+### Get User
+GET http://localhost:3001/accounts/all
+
+### Create account
+POST http://localhost:3001/accounts/create
+Content-Type: application/json
+
+### Login
+POST http://localhost:3001/accounts/login
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "password":"1234567890"
+}
+
+### Register
+POST http://localhost:3001/accounts/register
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "phone":"+237691872554",
+  "dob":"1987-03-11",
+  "account":"96131258"
+}
+
+### Forgot
+POST http://localhost:3001/accounts/password/forgot
+Content-Type: application/json
+
+{
+  "email":"chefidelis@gmail.com",
+  "dob":"1987-03-11",
+  "account":"96131258"
+}
+
+### Check
+POST http://localhost:3001/accounts/password/expiry
+Authorization: Bearer 
+
+### Reset
+POST http://localhost:3001/accounts/password/reset
+Authorization: Bearer 
+Content-Type: application/json
+
+{
+  "password": "1234567890"
+}
+
+### Change password
+POST http://localhost:3001/accounts/password/change
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTcwOTAyODIwMTI4Mg.lTdUJuDE1d4AVPQyw0jBw2woeA0kRzt9HGi2jN7Bzzc
+Content-Type: application/json
+
+{
+  "newpassword": "1234567890",
+  "password": "123456789"
+}
+
+### Update
+PATCH http://localhost:3001/accounts/1709028201282
+Content-Type: application/json
+
+{
+  "profile.photo":  "https://i.pinimg.com/280x280_RS/20/f2/ad/20f2ad3dc908241a10bbf8ab8939ae15.jpg"
+}
+
+### Delete
+DELETE http://localhost:3001/accounts/1709028201282

@@ -1,0 +1,22 @@
+{
+  "email": "chefidelis@gmail.com",
+  "password": "1234567890",
+  "status": "pending",
+  "profile": {
+    "lname": "Che",
+    "fname": "Fidelis Funwi",
+    "gender": "Male",
+    "phone": "+237 691 87 2554",
+    "birth_place": "Cameroon",
+    "birth_city": "Kumba",
+    "birth_date": "1987-03-11",
+    "nationality": "Cameroon",
+    "civil_status": "Single"
+  },
+  "address": {},
+  "program": {},
+  "uploads": {},
+  "payment": {},
+  "secondary": {},
+  "postsecondary": []
+}

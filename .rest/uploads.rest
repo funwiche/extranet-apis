@@ -1,0 +1,5 @@
+
+
+### Delete
+DELETE http://localhost:3001/admissions/uploads/1704202990582-attestation.doc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MjQyMDQxOTU.Nq6loJjrvYSj3j82APtPvp2gX3Iaj3GOkOV0x2U0yfo

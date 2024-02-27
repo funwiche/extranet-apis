@@ -1,0 +1,3 @@
+###
+POST http://localhost:3001/mail
+Content-Type: application/json

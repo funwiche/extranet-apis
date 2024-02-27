@@ -1,0 +1,36 @@
+###
+POST http://localhost:3001/payments/monetbil
+Content-Type: application/json
+
+{
+  "phonenumber": "651946545",
+  "amount": 100,
+  "operator": "CM_MTNMOBILEMONEY",
+  "currency": "XAF",
+  "country": "CM",
+  "first_name":"Fidelis Funwi",
+  "last_name":"Che",
+  "email": "chefidelis@gmail.com"
+}
+###
+POST http://localhost:3001/payments/monetbil/place
+Content-Type: application/json
+
+{
+  "phonenumber": "651736264",
+  "amount": 10000,
+  "operator": "CM_MTNMOBILEMONEY",
+  "currency": "XAF",
+  "country": "CM",
+  "first_name":"Fidelis Funwi",
+  "last_name":"Che",
+  "email": "chefidelis@gmail.com"
+}
+
+###
+POST http://localhost:3001/payments/monetbil/check
+Content-Type: application/json
+
+{
+  "paymentId": "23081916000212698238"
+}

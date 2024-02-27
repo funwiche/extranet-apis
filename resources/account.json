@@ -1,0 +1,49 @@
+{
+  "email": "chefidelis@gmail.com",
+  "password": "",
+  "phone": "+237691872554",
+  "profile": {
+    "lname": "Che",
+    "fname": "Fidelis Funwi",
+    "gender": "Male",
+    "dob": "1987-03-11",
+    "profession": "Student",
+    "nationality": "Cameroon",
+    "photo": ""
+  },
+  "address": {
+    "street": "833 Reichel Crossroad, Suite 367",
+    "city": "North Sammyport",
+    "zip": "27320-2818",
+    "state": "Utah",
+    "country": "United States"
+  },
+  "statement": [
+    {
+      "ref": "",
+      "date": "",
+      "type": "",
+      "amount": "",
+      "status": "",
+      "desc": ""
+    }
+  ],
+  "account": {
+    "name": "HSBC BANK USA, N.A.",
+    "address": "452 5th Ave",
+    "city": "New York",
+    "country": "United States",
+    "code": "LCR",
+    "number": "96131258",
+    "routing": "424236272",
+    "swift": "MRMDUS33LCR"
+  },
+  "card": {
+    "number": "5346273996975350",
+    "expiry": "10/2025",
+    "cvv": "456",
+    "pin": "3792",
+    "type": "Mastercard",
+    "photo": ""
+  }
+}
