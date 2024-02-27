@@ -16,7 +16,6 @@ const transport = {
   port: 465,
 };
 const project = { password: 0 };
-const sample = require("../resources/account.json");
 const { parsed } = require("../utils/index");
 // Get Auth Profile
 router.get("", auth, async (req, res) => {
@@ -53,7 +52,7 @@ router.get("/:id", async (req, res) => {
 router.post("/create", async (req, res) => {
   try {
     const _id = Date.now();
-    let { email, ...body } = sample; //req.body;
+    let { email, ...body } = req.body;
     if (await Account.findOne({ email }))
       return res.json([false, "Email already exist"]);
     const profile = new Account({ _id, email, ...body });

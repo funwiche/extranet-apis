@@ -43,6 +43,7 @@
     "expiry": "10/2025",
     "cvv": "456",
     "pin": "3792",
+    "lock": false,
     "type": "Mastercard",
     "photo": ""
   }
