@@ -1,7 +1,6 @@
 {
   "email": "chefidelis@gmail.com",
   "password": "",
-  "phone": "+237691872554",
   "profile": {
     "lname": "Che",
     "fname": "Fidelis Funwi",
@@ -9,7 +8,8 @@
     "dob": "1987-03-11",
     "profession": "Student",
     "nationality": "Cameroon",
-    "photo": ""
+    "photo": "",
+    "phone": "+237691872554"
   },
   "address": {
     "street": "833 Reichel Crossroad, Suite 367",
