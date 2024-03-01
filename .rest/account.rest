@@ -56,13 +56,13 @@ Content-Type: application/json
 }
 
 ### Change password
-POST http://localhost:3001/accounts/password/change
+PATCH http://localhost:3001/accounts/password/change
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTcwOTAyODIwMTI4Mg.lTdUJuDE1d4AVPQyw0jBw2woeA0kRzt9HGi2jN7Bzzc
 Content-Type: application/json
 
 {
-  "newpassword": "1234567890",
-  "password": "123456789"
+  "newpassword": "33EXPort",
+  "password": "1234567890"
 }
 
 ### Update
@@ -70,9 +70,27 @@ PATCH http://localhost:3001/accounts/1709028201282
 Content-Type: application/json
 
 {
-  "profile.photo":  "https://i.pinimg.com/280x280_RS/20/f2/ad/20f2ad3dc908241a10bbf8ab8939ae15.jpg",
-  "card.lock":  false,
-  "profile.phone": "+237691872554"
+  "profile.photo":"",
+  "statement": [
+    {
+      "ref": "77011209",
+      "date": "2024-02-26",
+      "type": "credit",
+      "amount": "2500000",
+      "status": "complete",
+      "desc": "Illuminati Operating Account ABA/TRC - *3002",
+      "balance": "2500000"
+    },
+    {
+      "ref": "77011387",
+      "date": "2024-02-27",
+      "type": "debit",
+      "amount": "156345.23",
+      "status": "complete",
+      "desc": "Tax Account ABA/TRC - *1111",
+      "balance": "2343654.77"
+    }
+  ]
 
 }
 

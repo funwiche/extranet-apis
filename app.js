@@ -15,7 +15,6 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, "public")));
-
 // Global Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cors());

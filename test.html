@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      p {
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Dear ${profile.fname} ${profile.lname},</p>
+    <h2>Complete your Online Banking Registration</h2>
+    <p>
+      You can complete your Online Banking Registration by clicking the link
+      below:
+    </p>
+    <a
+      style="
+        border-radius: 24px;
+        height: 42px;
+        background-color: #0094da;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        display: inline-block;
+        line-height: 42px;
+        text-decoration: none;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 700;
+      "
+      href="${base_url}/reset?token=${token}"
+      target="_blank"
+      >Complete registration</a
+    >
+    <p>
+      or copy and paste the URL in your browser:
+      <a href="${base_url}/reset?token=${token}" target="_blank"
+        >${base_url}/reset?token=${token}</a
+      >
+    </p>
+    <p>This URL will be valid for <b>15 minutes</b>.</p>
+    <p>
+      If you have not completed your registration during this period, you will
+      have to request a new URL.
+    </p>
+    <p>If you did not request this message, you can ignore this email.</p>
+    <br />
+    <p>Best regards</p>
+    <!-- <p>
+      Dear ${profile.fname} ${profile.lname},<br /><br />You can complete your
+      Online Banking Registration with the following url:&nbsp;<a
+        href="${base_url}/reset?token=${token}"
+        target="_blank"
+        >${base_url}/reset?token=${token}</a
+      ><br />This url will be valid for <b>15 minutes</b>. If you have not
+      completed your registration during this period, you will have to restart
+      the process all over.<br />If you did not request a password reset, you
+      can ignore this email.<br /><br />Best regards
+    </p> -->
+    <!-- <br><h1>You asked to reset your password</h1><br><br>
+    Please click on the link below to reset your password.<br><br>
+
+    You can reset your password with the following url:&nbsp;<a href="${base_url}/reset?token=${token}" target="_blank">${base_url}/reset?token=${token}</a><br>This url will be valid for <b>15 minutes</b>. If you have not reset your password during this period, you will have to request a new url.<br>If you did not request a password reset, you can ignore this email.<br><br>Best regards</p> -->
+  </body>
+</html>
