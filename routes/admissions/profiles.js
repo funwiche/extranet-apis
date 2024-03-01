@@ -6,6 +6,7 @@ const Upload = require("../../models/Upload");
 const JWT = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SECRET = process.env.ACCESS_TOKEN_SECRET;
+const base_url = process.env.NSU_BASE_URL;
 const auth = require("../../middlewares/auth");
 const nodemailer = require("nodemailer");
 const user = "contact@swiftforwarding.com";
@@ -59,7 +60,7 @@ router.post("/register", async (req, res) => {
     const profile = await Profile.findOne({ email });
     if (profile) return res.json([false, "Email already exist"]);
     const token = JWT.sign({ ...req.body, expiry }, SECRET);
-    const html = `<p>Dear ${fname} ${lname},<br><br>Thank you very much for your registration!<br><br>First, please click on the following link to verify your e-mail address:<br><br><a href="https://apply.nsuni.co.uk/signup?token=${token}" rel="noreferrer" target="_blank">https://apply.nsuni.co.uk/signup</a><br><br>Please note that the link is only valid within the next 48 hours. If you have not completed the registration within this time, you will have to register again.<br>Please do not use your smartphone to open the link.<br><br>To log into the NSUni portal, please go to&nbsp;<a href="https://apply.nsuni.co.uk" rel="noreferrer" target="_blank">https://apply.nsuni.co.uk</a><br><br>kind regards<br><br><strong>Admissions Office</strong><br>Northern Scotland University,<br>P.O. Box 4920 St Andrew, NL A1C 5R3,<br>Scotland, United Kingdom<br>Tel.: +44 (0)1334 47 9191<br>Fax:&nbsp; ++44 (0)1334 47 9192<br><a href="mailto:admissions@nsuni.co.uk" target="_blank">admissions@nsuni.co.uk</a><br><a href="http://www.nsuni.co.uk" rel="noreferrer" target="_blank">www.nsuni.co.uk</a></p><img src="https://nsuni-uk.web.app/favicon.ico" width="65" >`;
+    const html = `<p>Dear ${fname} ${lname},<br><br>Thank you very much for your registration!<br><br>First, please click on the following link to verify your e-mail address:<br><br><a href="${base_url}/signup?token=${token}" rel="noreferrer" target="_blank">${base_url}/signup</a><br><br>Please note that the link is only valid within the next 48 hours. If you have not completed the registration within this time, you will have to register again.<br>Please do not use your smartphone to open the link.<br><br>To log into the NSUni portal, please go to&nbsp;<a href="${base_url}" rel="noreferrer" target="_blank">${base_url}</a><br><br>kind regards<br><br><strong>Admissions Office</strong><br>Northern Scotland University,<br>P.O. Box 4920 St Andrew, NL A1C 5R3,<br>Scotland, United Kingdom<br>Tel.: +44 (0)1334 47 9191<br>Fax:&nbsp; ++44 (0)1334 47 9192<br><a href="mailto:admissions@nsuni.co.uk" target="_blank">admissions@nsuni.co.uk</a><br><a href="http://www.nsuni.co.uk" rel="noreferrer" target="_blank">www.nsuni.co.uk</a></p><img src="https://nsuni-uk.web.app/favicon.ico" width="65" >`;
     const subject = "NSUni Online application: Registration";
     await nodemailer
       .createTransport(transport)

@@ -27,6 +27,7 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use("/mail", require("./routes/mails"));
+app.use("/version", require("./routes/version"));
 app.use("/payments", require("./routes/payments"));
 app.use("/accounts", require("./routes/accounts"));
 app.use("/admissions/apply", require("./routes/admissions/apply"));
