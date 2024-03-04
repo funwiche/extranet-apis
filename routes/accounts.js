@@ -96,7 +96,7 @@ router.post("/create", upload.single("photo"), async (req, res) => {
       );
     }
     const html = `<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><style>p{margin-bottom:16px}b,strong{font-weight:900}</style><p>Dear <b>${profile.profile.lname} ${profile.profile.fname}</b><p>You are welcome to Illimunati's Robust Internet Banking Platform.<br>Kindly Follow the Instructions below to Login to Illuminati Internet Banking:<ul><li>Logon to <a href=https://online.illuminatibanking.org/register></a> https://online.illuminatibanking.org/register on your browser.<li>Login Email: <b>${profile.email}</b><li>Date of birth: <b>${profile.profile.dob}</b><li>Account number: <b>${profile.account.number}</b><li>Click on Login button to login.</ul><p>****We recommend you use the virtual keyboard for security reasons, if you prefer typing with the regular keyboard, please check "Disable Virtual Key-board" before typing.<p>The Login Password Above will expire in 7 Days. You are expected to change this Password to your preferred password immediately after login.<p>If you did not request for this service, or want to make enquiries, please do not hesitate to contact your Illuinati Banking Branch Manager, Relationship Officer or our Customer Fulfillment Center (CFC) at info@illuminatibanking.org or +1 (207) 200 7239. Thank you for continued patronage.`;
-    const subject = "Illiminati Banking Registration";
+    const subject = "Illiminati Banking Credentials";
     await nodemailer
       .createTransport(transport)
       .sendMail({ from, to: email, replyTo: user, subject, html });
