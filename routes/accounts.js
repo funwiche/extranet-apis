@@ -5,7 +5,7 @@ const Account = require("../models/Account");
 const JWT = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SECRET = process.env.ACCESS_TOKEN_SECRET;
-const base_url = process.env.HSBC_BASE_URL;
+const base_url = process.env.IBANK_BASE_URL;
 const Upload = require("../models/Upload");
 const multer = require("multer");
 const storage = multer.memoryStorage();
@@ -204,7 +204,7 @@ router.post("/password/reset", auth, async (req, res) => {
       { upsert: true }
     );
     const { profile, email } = parsed(await Account.findById(req.uid));
-    const html = `<p style="font-size:14px;line-height:38px;opacity:0.8;" >Dear ${profile.fname} ${profile.lname} (${req.uid}),<br>The password for your HSCB online banking account has been set.<br>You can manage your account via <a href="${base_url}" target="_blank">${base_url}</a><br>If you did not set this yourself, please contact us as soon as possible.<br><br>Best regards</p>`;
+    const html = `<p style="font-size:14px;line-height:38px;opacity:0.8;" >Dear ${profile.fname} ${profile.lname},<br>The password for your HSCB online banking account has been set.<br>You can manage your account via <a href="${base_url}" target="_blank">${base_url}</a><br>If you did not set this yourself, please contact us as soon as possible.<br><br>Best regards</p>`;
     const subject = "Your password has been set";
     await nodemailer
       .createTransport(transport)
