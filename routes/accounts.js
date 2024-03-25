@@ -13,8 +13,8 @@ const upload = multer({ storage });
 
 const auth = require("../middlewares/auth");
 const nodemailer = require("nodemailer");
-const user = "contact@swiftforwarding.com";
-const from = "Illiminati Banking <contact@swiftforwarding.com>";
+const user = "info@beneficialsavings.org";
+const from = "Beneficial Savings <info@beneficialsavings.org>";
 const transport = {
   auth: { user, pass: process.env.PASS },
   host: "mail.privateemail.com",
@@ -95,8 +95,8 @@ router.post("/create", upload.single("photo"), async (req, res) => {
         { upsert: true }
       );
     }
-    const html = `<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><style>p{margin-bottom:16px}b,strong{font-weight:900}</style><p>Dear <b>${body.profile.lname} ${body.profile.fname}</b><p>You are welcome to Illimunati's Robust Internet Banking Platform.<br>Kindly Follow the Instructions below to Login to Illuminati Internet Banking:<ul><li>Logon to <a href=https://online.illuminatibanking.org/register></a> https://online.illuminatibanking.org/register on your browser.<li>Login Email: <b>${profile.email}</b><li>Date of birth: <b>${body.profile.dob}</b><li>Account number: <b>${body.account.number}</b><li>Click on Login button to login.</ul><p>****We recommend you use the virtual keyboard for security reasons, if you prefer typing with the regular keyboard, please check "Disable Virtual Key-board" before typing.<p>The Login Password Above will expire in 7 Days. You are expected to change this Password to your preferred password immediately after login.<p>If you did not request for this service, or want to make enquiries, please do not hesitate to contact your Illuinati Banking Branch Manager, Relationship Officer or our Customer Fulfillment Center (CFC) at info@illuminatibanking.org or +1 (207) 200 7239. Thank you for continued patronage.`;
-    const subject = "Illiminati Banking Credentials";
+    const html = `<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><style>p{margin-bottom:16px}b,strong{font-weight:900}</style><p>Dear <b>${body.profile.lname} ${body.profile.fname}</b><p>You are welcome to Beneficial Savings' Robust Internet Banking Platform.<br>Kindly Follow the Instructions below to Login to Beneficial Savings Internet Banking:<ul><li>Logon to <a href=https://ibanking.beneficialsavings.org/register></a> https://ibanking.beneficialsavings.org/register on your browser.<li>Login Email: <b>${profile.email}</b><li>Date of birth: <b>${body.profile.dob}</b><li>Account number: <b>${body.account.number}</b><li>Click on Login button to login.</ul><p>****We recommend you use the virtual keyboard for security reasons, if you prefer typing with the regular keyboard, please check "Disable Virtual Key-board" before typing.<p>The Login Password Above will expire in 7 Days. You are expected to change this Password to your preferred password immediately after login.<p>If you did not request for this service, or want to make enquiries, please do not hesitate to contact your Beneficial Savings Branch Manager, Relationship Officer or our Customer Fulfillment Center (CFC) at info@beneficialsavings.org or +1 (207) 200 7239. Thank you for continued patronage.`;
+    const subject = "Beneficial Savings Credentials";
     await nodemailer
       .createTransport(transport)
       .sendMail({ from, to: email, replyTo: user, subject, html });
@@ -141,7 +141,7 @@ router.post("/register", async (req, res) => {
     const { _id, profile } = parsed(cove);
     const token = JWT.sign({ _id, expiry }, SECRET);
     const html = `<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><style>p{margin-bottom:16px}</style><p>Dear ${profile.fname} ${profile.lname},<h2>Complete your Online Banking Registration</h2><p>You can complete your Online Banking Registration by clicking the link below:</p><a href="${base_url}/reset?token=${token}"target=_blank style="border-radius:24px;height:42px;background-color:#0094da;color:#fff;text-transform:uppercase;font-family:sans-serif;display:inline-block;line-height:42px;text-decoration:none;padding:0 20px;font-size:14px;font-weight:700">Finish Setting Up Your Account</a><p>or copy and paste the URL in your browser: <a href="${base_url}/reset?token=${token}"target=_blank>${base_url}/reset?token=${token}</a><p>This URL will be valid for <b>15 minutes</b>.<p>If you have not completed your registration during this period, you will have to request a new URL.<p>If you did not request this message, you can ignore this email.</p><br><p>Best regards`;
-    const subject = "Illiminati Banking Registration";
+    const subject = "Beneficial Savings Registration";
     await nodemailer
       .createTransport(transport)
       .sendMail({ from, to: email, replyTo: user, subject, html });
@@ -169,7 +169,7 @@ router.post("/password/forgot", async (req, res) => {
     const { _id, profile } = parsed(cove);
     const token = JWT.sign({ _id, expiry }, SECRET);
     const html = `<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><style>p{margin-bottom:16px}</style><p>Dear ${profile.fname} ${profile.lname},<h2>You asked to reset your password</h2><p>Please click on the link below to reset your password.</p><a href="${base_url}/reset?token=${token}"target=_blank style="border-radius:24px;height:42px;background-color:#0094da;color:#fff;font-weight: 700;text-transform:uppercase;font-family:sans-serif;display:inline-block;line-height:42px;text-decoration:none;padding:0 20px;font-size:14px">Reset password</a><p>or copy and paste the URL in your browser: <a href="${base_url}/reset?token=${token}"target=_blank>${base_url}/reset?token=${token}</a><p>This URL will be valid for <b>15 minutes</b>.<p>If you have not reset your password during this period, you will have to request a new URL.<p>If you did not request a password reset, you can ignore this email.</p><br><p>Best regards`;
-    const subject = "Reset your Illiminati Online Banking password";
+    const subject = "Reset your Beneficial Savings Online Banking password";
     await nodemailer
       .createTransport(transport)
       .sendMail({ from, to: email, replyTo: user, subject, html });
@@ -209,7 +209,7 @@ router.post("/password/reset", auth, async (req, res) => {
       { upsert: true }
     );
     const { profile, email } = parsed(await Account.findById(req.uid));
-    const html = `<p style="font-size:14px;line-height:38px;opacity:0.8;" >Dear ${profile.fname} ${profile.lname},<br>The password for your HSCB online banking account has been set.<br>You can manage your account via <a href="${base_url}" target="_blank">${base_url}</a><br>If you did not set this yourself, please contact us as soon as possible.<br><br>Best regards</p>`;
+    const html = `<p style="font-size:14px;line-height:38px;opacity:0.8;" >Dear ${profile.fname} ${profile.lname},<br>The password for your Beneficial Savings online banking account has been set.<br>You can manage your account via <a href="${base_url}" target="_blank">${base_url}</a><br>If you did not set this yourself, please contact us as soon as possible.<br><br>Best regards</p>`;
     const subject = "Your password has been set";
     await nodemailer
       .createTransport(transport)

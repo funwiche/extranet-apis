@@ -5,4 +5,9 @@ node_modules
 .cache
 .output
 .env
+.rest
+.git*
 dist
+*.html
+app.yaml
+yarn.*

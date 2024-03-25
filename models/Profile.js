@@ -6,6 +6,7 @@ module.exports = mongoose.model(
     {
       _id: { type: Number, required: true },
       email: { type: String, required: true, unique: true },
+      verified: { type: Boolean, default: false },
       password: String,
       profile: Map,
       address: Map,
