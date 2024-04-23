@@ -16,10 +16,11 @@ app.use(function (req, res, next) {
 });
 
 // Routes
+app.use("/accounts/auth", require("./routes/accounts/auth"));
+app.use("/accounts/profile", require("./routes/accounts/profile"));
+app.use("/accounts/mailer", require("./routes/accounts/mailer"));
 app.use("/mail", require("./routes/mails"));
-app.use("/version", require("./routes/version"));
 app.use("/payments", require("./routes/payments"));
-app.use("/accounts", require("./routes/accounts"));
 app.use("/admissions/apply", require("./routes/admissions/apply"));
 app.use("/admissions/profiles", require("./routes/admissions/profiles"));
 app.use("/admissions/uploads", require("./routes/admissions/uploads"));
@@ -34,4 +35,4 @@ db.once("open", () => console.log("Connected to Database"));
 
 // Start app
 const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(port, () => console.log(`http://localhost:${port}`));
