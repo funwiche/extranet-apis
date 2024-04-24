@@ -1,9 +1,9 @@
 const parsed = (val) => JSON.parse(JSON.stringify(val));
 const app = {
-  name: "Illushore Bank",
+  name: "Illumbank",
   host: "mail.privateemail.com",
-  url: "https://internetbanking.illushore.com",
-  email: "info@illushore.com",
+  url: "https://internetbanking.illumbk.com",
+  email: "info@illumbk.com",
   phone: "+1 (207) 200 7239",
 };
 const date = (val) => {
