@@ -4,7 +4,7 @@ const app = {
   host: "mail.privateemail.com",
   url: "https://internetbanking.illumbk.com",
   email: "info@illumbk.com",
-  phone: "+1 (207) 200 7239",
+  phone: "+1 (213) 534 8731",
 };
 const date = (val) => {
   const date = new Date(val);
