@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const { app } = require("../../utils/index");
+const { app, filters } = require("../../utils/index");
 const transport = {
   auth: { user: app.email, pass: process.env.PASS },
   host: app.host,
@@ -26,12 +26,13 @@ router.post("", async (req, res) => {
 });
 router.post("/appointment", async (req, res) => {
   try {
-    const { name, email, phone, city, state, date, time } = req.body;
+    const { lname, fname, email, phone, city, state, date, time } = req.body;
+    const name = `${lname} ${fname}`;
     const from = `${name} <${app.email}>`;
     const subject = `${name} - Appointment`;
-    const html = `<!doctypehtml><html lang="en"><head><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1"name="viewport"><style>*{margin:0;padding:0}p{margin-bottom:12px!important}a{color:#1b73e8;text-decoration:underline}strong{font-weight:900}</style></head><body><p><strong>Full name:</strong> ${name}</p><p><strong>Phone Number:</strong> ${phone}</p><p><strong>Email Address: </strong>${email}</p><p><strong>City: </strong>${city}</p><p><strong>State: </strong>${state}</p><p><strong>Date: </strong>${date} ${
-      time || ""
-    }</p></body></html>`;
+    const html = `<!doctypehtml><html lang="en"><head><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1"name="viewport"><style>*{margin:0;padding:0}p{margin-bottom:12px!important}a{color:#1b73e8;text-decoration:underline}strong{font-weight:900}</style></head><body><p><strong>Full name:</strong> ${name}</p><p><strong>Phone Number:</strong> ${phone}</p><p><strong>Email Address: </strong>${email}</p><p><strong>City: </strong>${city}</p><p><strong>State: </strong>${state}</p><p><strong>Date: </strong>${filters.date(
+      date
+    )} ${time || ""}</p></body></html>`;
     await nodemailer
       .createTransport(transport)
       .sendMail({ from, to: app.email, replyTo: email, subject, html });
