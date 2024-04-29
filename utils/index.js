@@ -6,6 +6,9 @@ const app = {
   email: "info@illumbk.com",
   phone: "+1 (213) 534 8731",
 };
+// mailer
+const user = "contact@msg.cotransltd.com";
+const host = "msg.cotransltd.com";
 const date = (val) => {
   const date = new Date(val);
   const dd = date.toLocaleString("en-US", { day: "2-digit" });
@@ -22,4 +25,10 @@ const time = (val) =>
 const rand = (min = 0, max = 16) =>
   Math.random().toString().split(".")[1].slice(min, max);
 const month = ((Date.now() % 11) + 1).toString().padStart(2, "0");
-module.exports = { app, filters: { date, time, rand, month }, parsed };
+module.exports = {
+  app,
+  filters: { date, time, rand, month },
+  parsed,
+  user,
+  host,
+};
