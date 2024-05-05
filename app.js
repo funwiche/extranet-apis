@@ -35,5 +35,5 @@ db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("Connected to Database"));
 
 // Start app
-const port = process.env.PORT || 3300;
+const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`http://localhost:${port}`));
