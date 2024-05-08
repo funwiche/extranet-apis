@@ -34,7 +34,7 @@ const user = {
 router.get("/google", async (req, res) => {
   try {
     const { redirect } = req.query;
-    res.redirect(`${redirect}?token=${token}&user${JSON.stringify(user)}`);
+    res.redirect(`${redirect}?token=${token}&user=${JSON.stringify(user)}`);
   } catch (error) {
     res.sendStatus(500);
   }
@@ -42,7 +42,7 @@ router.get("/google", async (req, res) => {
 router.get("/facebook", async (req, res) => {
   try {
     const { redirect } = req.query;
-    res.redirect(`${redirect}?token=${token}&user${JSON.stringify(user)}`);
+    res.redirect(`${redirect}?token=${token}&user=${JSON.stringify(user)}`);
   } catch (error) {
     res.sendStatus(500);
   }
