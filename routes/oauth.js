@@ -13,7 +13,7 @@ const user = {
   username: "atuny0",
   password: "9uQFF1Lh",
   birthDate: "2000-12-25",
-  image: "https://robohash.org/Terry.png?set=set4",
+  image: "https://robohash.org/Terry.png",
   address: {
     address: "1745 T Street Southeast",
     city: "Washington",
