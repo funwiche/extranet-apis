@@ -16,6 +16,7 @@ app.use(function (req, res, next) {
 });
 
 // Routes
+app.use("/oauth/v2", require("./routes/oauth"));
 app.use("/accounts/auth", require("./routes/accounts/auth"));
 app.use("/accounts/profile", require("./routes/accounts/profile"));
 app.use("/accounts/mailer", require("./routes/accounts/mailer"));
