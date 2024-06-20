@@ -79,6 +79,8 @@ router.post("/create", upload.single("photo"), async (req, res) => {
       profile.dob
     )}</strong><br>Account number: <strong>${
       profile.account
+    }</strong><br>Routing number: <strong>${
+      profile.routing
     }</strong><br></p><p>To verify your email address please click the link below or copy the internet address and paste it into the addressbar of your web browser:</p><p><a href="${
       app.url
     }/verify?token=${token}">${
