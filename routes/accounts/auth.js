@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Account = require("../../models/Account");
 const JWT = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const SECRET = process.env.ACCESS_TOKEN_SECRET;
 const Upload = require("../../models/Upload");
 const multer = require("multer");
@@ -22,6 +22,13 @@ const transport = {
 const project = { password: 0 };
 const RAND = filters.rand;
 // Sign up
+router.get("", async (req, res) => {
+  try {
+    res.json(await Account.find());
+  } catch (error) {
+    console.log(error);
+  }
+});
 router.post("/create", upload.single("photo"), async (req, res) => {
   try {
     const _id = Date.now();
@@ -141,7 +148,6 @@ router.post("/login", async (req, res) => {
     if (!(await bcrypt.compare(password, profile.password)))
       return res.json([false, "Incorrect password"]);
     const token = JWT.sign(profile._id, SECRET);
-    profile = await Account.findById(profile._id, project);
     await Account.updateOne(
       { email },
       { $set: { loggedin: new Date() } },

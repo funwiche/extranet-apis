@@ -1,6 +1,5 @@
 ### Get User
-GET http://localhost:3001/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTcwOTAyODIwMTI4Mg.lTdUJuDE1d4AVPQyw0jBw2woeA0kRzt9HGi2jN7Bzzc
+GET http://localhost:3001/accounts/auth
 
 ### Get User
 GET http://localhost:3001/accounts/1709028201282
@@ -8,17 +7,17 @@ GET http://localhost:3001/accounts/1709028201282
 ### Get User
 GET http://localhost:3001/accounts/all
 
-### Create account
+### Create account 
 POST http://localhost:3001/accounts/create
 Content-Type: application/json
 
 ### Login
-POST http://localhost:3001/accounts/login
+POST http://localhost:3001/accounts/auth/login
 Content-Type: application/json
 
 {
-  "email":"chefidelis@gmail.com",
-  "password":"1234567890"
+  "email":"snapdevx@gmail.com",
+  "password":"#33EXPort"
 }
 
 ### Register
@@ -43,20 +42,21 @@ Content-Type: application/json
 }
 
 ### Check
-POST http://localhost:3001/accounts/password/expiry
+GET http://localhost:3001/accounts/auth/password/expiry?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjE3MTg4ODAxMjYzMTMsImV4cGlyeSI6MTcxODg4NDg4MDAwNiwiaWF0IjoxNzE4ODgzMDgwfQ.BWjBAw7DkP2Hv4mW0OzcoU9YJVaXip3q-FYpuE6-8i0
 Authorization: Bearer 
 
 ### Reset
-POST http://localhost:3001/accounts/password/reset
+POST http://localhost:3001/accounts/auth/password/reset
 Authorization: Bearer 
 Content-Type: application/json
 
 {
-  "password": "1234567890"
+  "email":"snapdevx@gmail.com",
+  "password":"#33EXPort"
 }
 
 ### Change password
-PATCH http://localhost:3001/accounts/password/change
+PATCH http://localhost:3001/accounts/auth/password/change
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTcwOTAyODIwMTI4Mg.lTdUJuDE1d4AVPQyw0jBw2woeA0kRzt9HGi2jN7Bzzc
 Content-Type: application/json
 
