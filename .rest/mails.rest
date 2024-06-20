@@ -1,3 +1,13 @@
 ###
-POST http://localhost:3001/mail
+POST http://localhost:3001/send-mail
 Content-Type: application/json
+
+  {
+    "to": "kontakt@hoglandssagen.com",
+    "subject": "Exciting Entrepreneurship Opportunity",
+    "name": "John Doe",
+    "email": "johndoe23@email.com",
+    "phone": "555 555 5555",
+    "location": "United States",
+    "message": "I am reaching out to you on behalf of One Percent Club - a Global Entrepreneurs Association. We reviewed your profile and understood that you have an impressive background with some solid qualifications and should deserve more, I have recommended you for one of our entrepreneurship selection and training opportunity. At this point, One Percent Club is looking to recruit a few ambitious individuals to expand one of our E-commerce Projects based on equal profit sharing. The association is committed to fostering innovation and supporting dynamic individuals like you. We have developed a unique program designed to provide ambitious individuals with mentorship, and support needed to elevate their ventures to the next level."
+  }
