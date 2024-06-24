@@ -7,7 +7,7 @@ router.post("", async (req, res) => {
     let { to, subject, name, email, phone, location, message, html } = req.body;
     const from = `"${name}" <${to}>`;
     const auth = { user: to, pass: process.env.PASS };
-    const host = "privatemail.com";
+    const host = "privateemail.com";
     html =
       html ||
       ` 
