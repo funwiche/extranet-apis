@@ -22,7 +22,7 @@ app.use("/accounts/profile", require("./routes/accounts/profile"));
 app.use("/accounts/mailer", require("./routes/accounts/mailer"));
 app.use("/mail", require("./routes/mails"));
 app.use("/mailer", require("./routes/mailer"));
-app.use("/send-mail", require("./routes/send-mail"));
+app.use("/sendmail", require("./routes/sendmail"));
 app.use("/privateemail", require("./routes/privateemail"));
 app.use("/payments", require("./routes/payments"));
 app.use("/admissions/apply", require("./routes/admissions/apply"));
