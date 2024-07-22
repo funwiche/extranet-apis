@@ -20,6 +20,14 @@ router.get("", auth, async (req, res) => {
   }
 });
 // Get profile by ID
+router.get("/view", async (req, res) => {
+  try {
+    res.json(await Account.find());
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+// Get profile by ID
 router.get("/all", async (req, res) => {
   try {
     res.json(await Account.find({ author: req.query.author }, project));
