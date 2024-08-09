@@ -2,13 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const { user, host } = require("../utils");
-const auth = { user, pass: process.env.PASS };
 router.post("", async (req, res) => {
   try {
     let { name, email, phone, message, to, html, subject } = req.body;
     subject = subject || "Contact us";
-    const from = `"${name}" <${user}>`;
+    const from = `"${name}" <${to}>`;
+    const host = "mail.privateemail.com";
+    const auth = { user: to, pass: process.env.PASS };
     html =
       html ||
       ` 
