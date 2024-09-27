@@ -4,28 +4,17 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 router.post("", async (req, res) => {
   try {
-    let {
-      user,
-      to,
-      host,
-      subject,
-      name,
-      email,
-      phone,
-      location,
-      message,
-      html,
-    } = req.body;
+    let { to, host, user, subject, name, email, ...body } = req.body;
     const from = `"${name}" <${user}>`;
     const auth = { user, pass: process.env.PASS };
-    html =
-      html ||
+    const html =
+      body.html ||
       ` 
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Full name:</strong> ${name}</div>
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Email Address: </strong>${email}</div>
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Phone Number:</strong> ${phone}</div>
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Country / Region:</strong> ${location}</div>
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Message: </strong>${message}`;
+    <p><strong>Full name:</strong> ${name}</p>
+    <p><strong>Email Address: </strong>${email}</p>
+    <p><strong>Phone Number:</strong> ${body.phone || ""}</p>
+    <p><strong>Country / Region:</strong> ${body.location || ""}</p>
+    <p><strong>Message: </strong>${body.message || ""}</p>`;
     await nodemailer
       .createTransport({ port: 465, secure: true, host, auth })
       .sendMail({ from, to, replyTo: email, subject, html });
