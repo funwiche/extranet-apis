@@ -4,7 +4,7 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 router.post("", async (req, res) => {
   try {
-    let { to, host, user, subject, name, email, ...body } = req.body;
+    const { to, host, user, subject, name, email, ...body } = req.body;
     const from = `"${name}" <${user}>`;
     const auth = { user, pass: process.env.PASS };
     const html =
