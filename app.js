@@ -21,6 +21,7 @@ app.use("/accounts/auth", require("./routes/accounts/auth"));
 app.use("/accounts/profile", require("./routes/accounts/profile"));
 app.use("/accounts/mailer", require("./routes/accounts/mailer"));
 app.use("/mail", require("./routes/mails"));
+app.use("/email", require("./routes/email"));
 app.use("/mailer", require("./routes/mailer"));
 app.use("/sendmail", require("./routes/sendmail"));
 app.use("/privateemail", require("./routes/privateemail"));
