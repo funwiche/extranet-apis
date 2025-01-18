@@ -11,8 +11,7 @@ router.post("", async (req, res) => {
     const auth = { user: to, pass: process.env.PASS };
     html =
       html ||
-      ` 
-    <div style="font-size:14px;margin-bottom:8px;"><strong>Full name:</strong> ${name}</div>
+      `<div style="font-size:14px;margin-bottom:8px;"><strong>Full name:</strong> ${name}</div>
     <div style="font-size:14px;margin-bottom:8px;"><strong>Phone Number:</strong> ${phone}</div>
     <div style="font-size:14px;margin-bottom:8px;"><strong>Email Address: </strong>${email}</div>
     <div style="font-size:14px;margin-bottom:8px;"><strong>Message: </strong>${message}</div>`;
