@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "nodemonConfig": {
     "events": {
